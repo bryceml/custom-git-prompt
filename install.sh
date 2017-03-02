@@ -4,7 +4,7 @@ echo -e "\e[33mInput your github username for github-shortcuts:\e[39m"
 read line
 sed -i "s/yourgithubusernamehere/$line/g" github-shortcuts
 
-echo -e "\e[33mMaking ~/.bash directory\e[39m"
+echo -e "\e[33mMaking directory ~/.bash/\e[39m"
 mkdir $HOME/.bash
 
 echo -e "\e[33mCopying scripts to ~/.bash/\e[39m"
