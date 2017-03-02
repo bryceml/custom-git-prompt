@@ -1,8 +1,10 @@
 
+GITHUBUSERNAME="yourgithubusernamehere"
+
 github-init(){
- curl -u 'bryceml' https://api.github.com/user/repos -d '{"name":"'$1'"}';
+ curl -u '$GITHUBUSERNAME' https://api.github.com/user/repos -d '{"name":"'$1'"}';
 }
 
 github-delete(){
- curl -X DELETE -u 'bryceml' https://api.github.com/repos/bryceml/$1
+ curl -X DELETE -u '$GITHUBUSERNAME' https://api.github.com/repos/$GITHUBUSERNAME/$1
 }
