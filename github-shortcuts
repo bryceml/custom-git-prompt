@@ -1,0 +1,8 @@
+
+github-init(){
+ curl -u 'bryceml' https://api.github.com/user/repos -d '{"name":"'$1'"}';
+}
+
+github-delete(){
+ curl -X DELETE -u 'bryceml' https://api.github.com/repos/bryceml/$1
+}
