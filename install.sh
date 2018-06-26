@@ -4,18 +4,18 @@ echo -e "\e[33mMaking directory ~/.bash/\e[39m"
 mkdir "${HOME}/.bash"
 
 echo -e "\e[33mCopying scripts to ~/.bash/\e[39m"
-cp -ai git-completion "${HOME}/.bash/"
-cp -ai git-prompt "${HOME}/.bash/"
-cp -ai github-shortcuts "${HOME}/.bash/"
+cp -ai $(dirname "${0}")/git-completion "${HOME}/.bash/"
+cp -ai $(dirname "${0}")/git-prompt "${HOME}/.bash/"
+cp -ai $(dirname "${0}")/github-shortcuts "${HOME}/.bash/"
 
 echo -e "\e[33mAppending bashrc to ~/.bashrc\e[39m"
-cat bashrc >> "${HOME}/.bashrc"
+cat $(dirname "${0}")/bashrc >> "${HOME}/.bashrc"
 
 echo -e "\e[33mAppending applicable prompt to ~/.bashrc\e[39m"
 if [ "${USER}" == "root" ]; then
-  cat prompt-red >> "${HOME}/.bashrc"
+  cat $(dirname "${0}")/prompt-red >> "${HOME}/.bashrc"
 else
-  cat prompt >> "${HOME}/.bashrc"
+  cat $(dirname "${0}")/prompt >> "${HOME}/.bashrc"
 fi
 
 echo -e "\e[33mAdding aliases to ~/.gitconfig\e[39m"
