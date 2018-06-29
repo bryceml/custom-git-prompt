@@ -24,15 +24,26 @@ git config --global alias.ls "ls-files"
 git config --global alias.count "rev-list HEAD --count"
 git config --global alias.wdiff "diff --word-diff"
 
-echo -n -e "\e[33mDo you want to configure github-shortcuts? [y/n]:\e[39m "
-while true; do
-    read yn
-    case $yn in
-        [Yy]* ) echo -e "\e[33mInput your github username for github-shortcuts:\e[39m"
-                read line
-                sed -i "s/yourgithubusernamehere/$line/g" "${HOME}/.bash/github-shortcuts"
-                break;;
-        [Nn]* ) break;;
-        * ) echo -n -e "\e[33mPlease answer yes or no:\e[39m ";;
-    esac
-done
+# Allow arg 1 to be used to use in scripts easier
+if [ -z ${1} ]
+then
+  # If arg 1 is "n" then do not configure github-shortcuts
+  if [ ${1} == "n" ]
+  then
+    exit
+  fi
+  echo -n -e "\e[33mDo you want to configure github-shortcuts? [y/n]:\e[39m "
+  while true; do
+      read yn
+      case $yn in
+          [Yy]* ) echo -e "\e[33mInput your github username for github-shortcuts:\e[39m"
+                  read line
+                  sed -i "s/yourgithubusernamehere/$line/g" "${HOME}/.bash/github-shortcuts"
+                  break;;
+          [Nn]* ) break;;
+          * ) echo -n -e "\e[33mPlease answer yes or no:\e[39m ";;
+      esac
+  done
+else
+  sed -i "s/yourgithubusernamehere/${1}/g" "${HOME}/.bash/github-shortcuts"
+fi
