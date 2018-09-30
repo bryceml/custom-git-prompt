@@ -28,7 +28,7 @@ git config --global alias.wdiff "diff --word-diff"
 if [ -z ${1} ]
 then
   # If arg 1 is "n" then do not configure github-shortcuts
-  if [ ${1} == "n" ]
+  if [ "${1}" == "n" ]
   then
     exit
   fi
