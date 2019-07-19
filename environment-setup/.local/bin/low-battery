@@ -1,0 +1,10 @@
+#!/bin/bash
+
+while true
+do
+	if test `cat /sys/class/power_supply/BAT0/charge_now` -lt 680000
+	then
+		notify-send 'battery-low !!!'
+	fi
+	sleep 15
+done
