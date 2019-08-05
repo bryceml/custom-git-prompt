@@ -1,0 +1,5 @@
+#!/bin/bash
+
+xrandr --output DP-1-1 --left-of eDP-1-1 --mode 3840x2160
+xrandr --output DP-1-2 --left-of DP-1-1 --mode 3840x2160
+xmodmap ~/.Xmodmap
